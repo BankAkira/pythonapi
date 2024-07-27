@@ -1,5 +1,5 @@
 import requests as rq
 
-
-url = rq.get('https://jellyfish-app-vkuir.ondigitalocean.app')
-print(url.text)
+url = rq.get('http://api.open-notify.org/astros')
+data = url.json()
+print(data["number"])
