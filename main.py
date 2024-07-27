@@ -35,9 +35,9 @@ def BMI(calbmi: BMI):
     bmicate = {}
     if(BmiValue < 18.5):
         bmi_category = "Underweight"
-    elif(BmiValue >= 18.5 or BmiValue <= 24.9):
+    elif(BmiValue >= 18.5 and BmiValue <= 24.9):
         bmi_category = "Healthy Weight"
-    elif(BmiValue >= 25.0 or BmiValue <= 29.9):
+    elif(BmiValue >= 25.0 and BmiValue <= 29.9):
         bmi_category = "Overweight"
     else:
         bmi_category = "Obesity"
