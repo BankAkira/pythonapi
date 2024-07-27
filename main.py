@@ -31,16 +31,26 @@ def multipy(number: multipy):
 
 @app.post("/BMI/")
 def BMI(calbmi: BMI):
-    BmiValue = calbmi.weight / (calbmi.height**2)
-
+    BmiValue = calbmi.weight / ((calbmi.height/100)**2)
+    bmicate = {}
     if(BmiValue < 18.5):
-        return {"result": calbmi.Name + ", your BMI is less than 18.5 >> Underweight"}
+        bmi_category = "Underweight"
     elif(BmiValue >= 18.5 or BmiValue <= 24.9):
-        return {"calbmi.Name, your BMI is 18.5—24.9 >> Healthy Weight"}
+        bmi_category = "Healthy Weight"
     elif(BmiValue >= 25.0 or BmiValue <= 29.9):
-        return {"calbmi.Name, your BMI is 25.0—29.9 >> Overweight"}
+        bmi_category = "Overweight"
     else:
-        return {"calbmi.Name, your BMI is 30.0 >> Above so Obesity"}
+        bmi_category = "Obesity"
+    
+    bmicate = { 
+        "Name": calbmi.Name,
+        "height": calbmi.height,
+        "weight": calbmi.weight ,
+        "bmi": BmiValue,
+        "bmi_category": bmi_category
+    }
+
+    return bmicate
 
 '''
 {
